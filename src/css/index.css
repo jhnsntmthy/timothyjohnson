@@ -1,0 +1,16 @@
+@import "./lib/bootstrap";
+@import "./lib/animate";
+@import "./clean-blog";
+
+/*!
+Custom CSS (by TimoJojo)
+*/
+
+*, body {
+  font: 17px/1.5em 'Fira Code';
+  font-weight: 300;
+}
+h1, h2, h3, h4. h5. h6 {
+  font-family: 'Fira Code';
+  font-weight: 300;
+}
