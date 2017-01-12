@@ -31,12 +31,10 @@ const customOpts = {
   ignore: ['./src/libs/**'],
 };
 const opts = assign({}, watchify.args, customOpts);
-console.log(opts);
 const b = watchify(browserify(opts));
 
 const polyfill_opts = { entries: ['./src/js/polyfills.js']};
 const opts_pf = assign({}, watchify.args, customOpts, polyfill_opts);
-console.log(opts_pf);
 const pf = watchify(browserify(opts));
 
 b.on('log', gutil.log);
