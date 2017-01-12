@@ -16,6 +16,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Fira Code';
   font-weight: 300;
 }
+h2 {
+  letter-spacing: -0.1em;
+}
+i {
+  font-style: normal !important;
+  font-size: 1em !important;
+  color: #f36;
+}
 .code {
   width: 30em;
   margin: 5em auto;

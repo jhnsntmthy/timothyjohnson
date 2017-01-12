@@ -1,9 +1,13 @@
 /* eslint-env browser, jquery */
 import $ from './theme';
-import jQuery from './navigation';
+import jQuery from './activity_lifecycle';
 import './custom_elements';
 import cheet from 'cheet.js';
-import {manifest, renderPage} from './section_prefetch';
+import './section_prefetch';
+import './hucklebuck';
+import './progress';
+import './scroll_to_top';
+
 
 
 const konami_pop = () => alert('Konàmi!');
@@ -16,5 +20,5 @@ cheet('↑ ↑ ↓ ↓ ← → ← → b a', konami_pop );
 // content.innerHTML = '<x-hola ref="somewhere nice"></x-hello>';
 
 
-$(document).trigger('activityReady');
-$(document).trigger('sections:prefetch');
+$(document).trigger('activity::ready');
+$(document).trigger('sections::prefetch');
