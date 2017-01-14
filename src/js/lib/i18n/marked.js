@@ -413,7 +413,7 @@ Lexer.prototype.token = function(src, top, bq) {
 
     // top-level paragraph
     if (top && (cap = this.rules.paragraph.exec(src))) {
-      console.log('found paragraph:', cap,src);
+      // console.log('found paragraph:', cap,src);
       src = src.substring(cap[0].length);
       if (cap[1].charAt(cap[1].length - 1) === '\n') {
         this.tokens.push({
@@ -421,7 +421,7 @@ Lexer.prototype.token = function(src, top, bq) {
           text: cap[1].slice(0, -1),
         });
       } else {
-        console.log('found last line', this.tokens.length, this.tokens, cap[1]);
+        // console.log('found last line', this.tokens.length, this.tokens, cap[1]);
         this.tokens.push({
           type: this.tokens.length > 0 ? 'paragraph' : 'html',
           text: cap[1],
