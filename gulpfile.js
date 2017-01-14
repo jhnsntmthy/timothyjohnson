@@ -45,17 +45,17 @@ pf.on('log', gutil.log);
  * This task will copy all files from libs into 'dist/libs'.
  * If you want to process them, just add your code to this task.
  */
-gulp.task('libs', function() {
-  return gulp.src(['./src/libs/**'])
+gulp.task('langs', function() {
+  return gulp.src(['./src/lang/**'])
     .pipe(plumber())
-    .pipe(gulp.dest(distpath + '/libs'))
+    .pipe(gulp.dest(distpath + '/lang'))
 });
 
 /**
  * This task will copy all files from media into 'dist/media'.
  * If you want to process them, just add your code to this task.
  */
-gulp.task('images', ['libs'], function()
+gulp.task('images', ['langs'], function()
 {
   return gulp.src(['./img/**/*'])
     .pipe(plumber())
