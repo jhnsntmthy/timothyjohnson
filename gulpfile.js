@@ -100,30 +100,7 @@ gulp.task('css', ['sections'], function () {
   );
 })
 
-/**
- * This task will bundle all other js files and babelify them.
- * If you want to add other processing to the main js files, add your code here.
- */
-gulp.task('bundle', ['css'], function()
-{
-  return b.bundle()
-    .on('error', function(err)
-    {
-      console.log(err.message);
-      browserSync.notify(err.message, 3000);
-      this.emit('end');
-    })
-    .pipe(plumber())
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(sourcemaps.write('./'))
-    .pipe(size())
-    .pipe(gulp.dest(distpath));
-});
-
-gulp.task('polyfills', ['bundle'], function()
+gulp.task('polyfills', ['css'], function()
 {
   return browserify('./src/js/polyfills.js')
     .bundle()
@@ -147,6 +124,29 @@ gulp.task('polyfills', ['bundle'], function()
 });
 
 /**
+ * This task will bundle all other js files and babelify them.
+ * If you want to add other processing to the main js files, add your code here.
+ */
+gulp.task('bundle', ['polyfills'], function()
+{
+  return b.bundle()
+    .on('error', function(err)
+    {
+      console.log(err.message);
+      browserSync.notify(err.message, 3000);
+      this.emit('end');
+    })
+    .pipe(plumber())
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(size())
+    .pipe(gulp.dest(distpath));
+});
+
+/**
  * This task starts watching the files inside 'src'. If a file is changed,
  * removed or added then it will run refresh task which will run the bundle task
  * and then refresh the page.
@@ -155,7 +155,7 @@ gulp.task('polyfills', ['bundle'], function()
  * media from bundling the source. This is especially true if you have large
  * amounts of media.
  */
-gulp.task('watch', ['polyfills'], function()
+gulp.task('watch', ['bundle'], function()
 {
   const watcher = gulp.watch('./src/**/*', ['refresh']);
   watcher.on('change', function(event)
