@@ -8,7 +8,7 @@ const prefetch = (language_list) => {
     fetch(`/lang/${locale}.json`)
       .then(response => response.json())
       .then((json) => {
-        console.log('Prefetched Language JSON', locale, json);
+        // console.log('Prefetched Language JSON', locale, json);
         $(document).trigger('translation::loaded', [locale, json]);
         $(document).trigger(`translation::loaded::${locale}`, [json]);
       })

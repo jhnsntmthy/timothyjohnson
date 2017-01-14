@@ -5,5 +5,4 @@ const manifest = [
   { slug: '404', title: '404' },
 ];
 
-
 export default manifest;
