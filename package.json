@@ -66,6 +66,8 @@
     "gulp-util": "^3.0.8",
     "lodash": "^4.17.4",
     "markdown-brunch": "^1.7.2",
+    "marked": "^0.3.6",
+    "most": "^1.2.0",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.0",
     "postcss": "^5.2.8",
