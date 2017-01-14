@@ -8,6 +8,7 @@ import manifest from './section_manifest';
 import { registerLanguages } from './lib/i18n/i18n';
 import './progress';
 import './scroll_to_top';
+import './menu';
 
 // registerLanguages() takes an array of languages this course supports
 // the order should be the order of importance, the first element

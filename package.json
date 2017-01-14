@@ -34,6 +34,7 @@
     "markdown-brunch": "^1.7.2",
     "marked": "^0.3.6",
     "most": "^1.2.0",
+    "prehistoric": "^1.2.0",
     "skatejs": "^4.5.2",
     "skatejs-web-components": "^5.0.1",
     "whatwg-fetch": "^2.0.1"
@@ -81,6 +82,7 @@
     "postcss-import": "^9.0.0",
     "postcss-reporter": "^3.0.0",
     "postcss-url": "^5.1.2",
+    "prehistoric": "^1.2.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "tape": "^4.6.3",

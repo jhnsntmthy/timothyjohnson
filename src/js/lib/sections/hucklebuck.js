@@ -1,6 +1,11 @@
 /* eslint-env browser, jquery */
 import $ from 'jquery';
 import './hucklebuck_buttons';
+// import createHistory from './prehistoric/history';
+
+// const { push, history } = createHistory();
+
+// history.observe(dat => console.log('HISTORICAL', dat));
 
 const sections_prefetched = {};
 const sections_order = {};
@@ -14,6 +19,7 @@ $(document).on('section::loaded', (e, slug, order, body) => {
 const renderSectionBySlug = (slug) => {
   console.log(`Rendering Section by Slug: ${slug}`);
   if (sections_prefetched[slug] !== undefined) {
+    // push('/'+slug, { state: slug });
     document.getElementById('content').innerHTML = sections_prefetched[slug];
     $(document).trigger('hucklebucked', [slug]);
   } else {
